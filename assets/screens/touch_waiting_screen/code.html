@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Touch Waiting Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#256af4",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Spline Sans", sans-serif;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            overflow: hidden;
+        }
+        .neon-glow-primary {
+            box-shadow: 0 0 20px rgba(37, 106, 244, 0.6), 0 0 40px rgba(37, 106, 244, 0.2);
+        }
+        .neon-glow-cyan {
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.8), 0 0 40px rgba(6, 182, 212, 0.4);
+        }
+        .neon-glow-pink {
+            box-shadow: 0 0 20px rgba(236, 72, 153, 0.8), 0 0 40px rgba(236, 72, 153, 0.4);
+        }
+        .neon-glow-lime {
+            box-shadow: 0 0 20px rgba(132, 204, 22, 0.8), 0 0 40px rgba(132, 204, 22, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark h-screen w-full flex flex-col relative">
+<!-- Top Navigation Bar Component -->
+<div class="relative z-20 flex items-center bg-transparent p-4 pb-2 justify-between">
+<div class="text-white flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined text-white">close</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center font-display">3 / 10 Players</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined text-white">settings</span>
+</button>
+</div>
+</div>
+<!-- Main Touch Area -->
+<div class="flex-1 relative flex flex-col items-center justify-center p-4">
+<!-- Animated Background Effects (Abstract) -->
+<div class="absolute inset-0 z-0 opacity-20 overflow-hidden pointer-events-none">
+<div class="absolute top-1/4 left-1/4 w-64 h-64 bg-primary rounded-full blur-[100px]"></div>
+<div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-600 rounded-full blur-[120px]"></div>
+</div>
+<!-- Headline Instruction Component -->
+<div class="relative z-10 text-center space-y-2">
+<h1 class="text-white tracking-[0.1em] text-[42px] font-bold leading-tight uppercase font-display opacity-80 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+                Touch and Hold
+            </h1>
+<!-- Body Text Component -->
+<p class="text-primary text-lg font-medium tracking-widest leading-normal animate-pulse">
+                WAITING FOR OTHERS...
+            </p>
+</div>
+<!-- Active Touch Points (Simulated) -->
+<div class="absolute inset-0 z-10 pointer-events-none">
+<!-- Player 1 Touch Point -->
+<div class="absolute top-[25%] left-[20%] flex flex-col items-center gap-2">
+<div class="size-20 rounded-full border-4 border-cyan-400 bg-cyan-400/20 neon-glow-cyan flex items-center justify-center">
+<div class="size-10 rounded-full bg-cyan-400 opacity-50"></div>
+</div>
+</div>
+<!-- Player 2 Touch Point -->
+<div class="absolute bottom-[30%] right-[15%] flex flex-col items-center gap-2">
+<div class="size-20 rounded-full border-4 border-pink-500 bg-pink-500/20 neon-glow-pink flex items-center justify-center">
+<div class="size-10 rounded-full bg-pink-500 opacity-50"></div>
+</div>
+</div>
+<!-- Player 3 Touch Point -->
+<div class="absolute top-[60%] left-[40%] flex flex-col items-center gap-2">
+<div class="size-20 rounded-full border-4 border-lime-400 bg-lime-400/20 neon-glow-lime flex items-center justify-center">
+<div class="size-10 rounded-full bg-lime-400 opacity-50"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Meta Text Component -->
+<div class="relative z-20 pb-8 px-4 text-center">
+<p class="text-primary/60 text-sm font-medium leading-normal uppercase tracking-widest font-display">
+            Up to 10 players supported
+        </p>
+<div class="mt-4 flex justify-center gap-4">
+<div class="flex items-center gap-1 text-white/40 text-xs">
+<span class="material-symbols-outlined text-sm">touch_app</span>
+<span>Multi-touch Active</span>
+</div>
+<div class="flex items-center gap-1 text-white/40 text-xs">
+<span class="material-symbols-outlined text-sm">vibration</span>
+<span>Haptics On</span>
+</div>
+</div>
+</div>
+<!-- Simulated Avatar Grid Component (Hidden but structured) -->
+<div class="hidden">
+<div class="grid grid-cols-5 gap-3 p-4">
+<div class="flex flex-col gap-3 text-center">
+<div class="px-2">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-full border-2 border-primary" data-alt="Avatar of player one" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCBTdXU_Xi7clgig6ug58EM7aJiuByYdI0TlrP65Pa7YvMew32_UtCxza9L0i5D2z5LRnsvgDG3i-pt9jBVU2egwFPgA-tIzx6J4RCCBgDrUVaKA0q3F1ifs9vrr7qSPCdqrlwlVQHRv9vVSTwLnZ2u7wMqNLq9SdNr7tdzdUfO2leU1i2lTaQ3H2g57YYeUlPixOCmazD_p8mrpP7FnSrS9g8HMWhhq0JXxYG6EhfJ2TS9zJfZTdEBrq3grgZ39xA9QtmT1l6PguY");'></div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#256af4",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Spline Sans', sans-serif;
+            background-color: #101622;
+            margin: 0;
+            overflow: hidden;
+        }
+        .glow-text {
+            text-shadow: 0 0 20px rgba(37, 106, 244, 0.8), 0 0 40px rgba(37, 106, 244, 0.4);
+        }
+        .energy-line {
+            stroke: #256af4;
+            stroke-width: 2;
+            filter: drop-shadow(0 0 8px #256af4);
+            opacity: 0.6;
+        }
+        .touch-point {
+            box-shadow: 0 0 15px 5px rgba(37, 106, 244, 0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white select-none">
+<div class="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden">
+<!-- Top App Bar -->
+<div class="absolute top-0 left-0 w-full flex items-center bg-transparent p-4 justify-between z-20">
+<div class="text-white flex size-12 shrink-0 items-center justify-center" data-icon="close">
+<span class="material-symbols-outlined text-3xl">close</span>
+</div>
+<div class="text-white flex size-12 shrink-0 items-center justify-center" data-icon="settings">
+<span class="material-symbols-outlined text-3xl">settings</span>
+</div>
+</div>
+<!-- SVG Layer for Energy Lines -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none z-0">
+<!-- Simulating lines from various touch points to center -->
+<line class="energy-line" x1="15%" x2="50%" y1="20%" y2="50%"></line>
+<line class="energy-line" x1="85%" x2="50%" y1="15%" y2="50%"></line>
+<line class="energy-line" x1="10%" x2="50%" y1="80%" y2="50%"></line>
+<line class="energy-line" x1="90%" x2="50%" y1="75%" y2="50%"></line>
+<line class="energy-line" x1="50%" x2="50%" y1="10%" y2="50%"></line>
+<line class="energy-line" x1="30%" x2="50%" y1="90%" y2="50%"></line>
+</svg>
+<!-- Simulated Touch Points (Active Fingers) -->
+<div class="absolute inset-0 z-10 pointer-events-none">
+<!-- Finger 1 -->
+<div class="touch-point absolute left-[15%] top-[20%] size-16 bg-primary/40 border-2 border-primary rounded-full flex items-center justify-center">
+<div class="size-8 bg-white/20 rounded-full blur-sm"></div>
+</div>
+<!-- Finger 2 -->
+<div class="touch-point absolute right-[15%] top-[15%] size-16 bg-primary/40 border-2 border-primary rounded-full flex items-center justify-center">
+<div class="size-8 bg-white/20 rounded-full blur-sm"></div>
+</div>
+<!-- Finger 3 -->
+<div class="touch-point absolute left-[10%] bottom-[20%] size-16 bg-primary/40 border-2 border-primary rounded-full flex items-center justify-center">
+<div class="size-8 bg-white/20 rounded-full blur-sm"></div>
+</div>
+<!-- Finger 4 -->
+<div class="touch-point absolute right-[10%] bottom-[25%] size-16 bg-primary/40 border-2 border-primary rounded-full flex items-center justify-center">
+<div class="size-8 bg-white/20 rounded-full blur-sm"></div>
+</div>
+<!-- Finger 5 -->
+<div class="touch-point absolute left-[50%] top-[10%] -translate-x-1/2 size-16 bg-primary/40 border-2 border-primary rounded-full flex items-center justify-center">
+<div class="size-8 bg-white/20 rounded-full blur-sm"></div>
+</div>
+<!-- Finger 6 -->
+<div class="touch-point absolute left-[30%] bottom-[10%] size-16 bg-primary/40 border-2 border-primary rounded-full flex items-center justify-center">
+<div class="size-8 bg-white/20 rounded-full blur-sm"></div>
+</div>
+</div>
+<!-- Central Countdown Number -->
+<div class="relative z-20 flex flex-col items-center justify-center">
+<h1 class="text-white tracking-light text-[180px] font-extrabold leading-none px-4 text-center glow-text font-display">
+                3
+            </h1>
+<p class="text-[#90a4cb] text-xl font-medium tracking-widest leading-normal pb-3 pt-4 px-4 text-center uppercase">
+                Don't let go!
+            </p>
+</div>
+<!-- Progress Indicator -->
+<div class="absolute bottom-12 w-full max-w-xs z-20">
+<div class="flex flex-col gap-3 p-4">
+<div class="flex gap-6 justify-between items-center">
+<p class="text-white text-sm font-medium leading-normal">Readying selection...</p>
+<p class="text-primary text-xs font-bold leading-normal uppercase">Active</p>
+</div>
+<div class="rounded-full h-1.5 bg-[#314368] overflow-hidden">
+<div class="h-full rounded-full bg-primary" style="width: 66%;"></div>
+</div>
+</div>
+</div>
+<!-- Avatar Group - Active Users Representation -->
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 opacity-60">
+<div class="flex items-center px-4 py-3 justify-center">
+<div class="overflow-visible w-[28px]">
+<div class="bg-center bg-no-repeat aspect-square bg-cover border-[#101623] bg-[#222f49] text-[#90a4cb] rounded-full flex items-center justify-center size-9 border-2" data-alt="User avatar 1 placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDMi6rcerDb4icrpjDEbxRT_qEn8RBkVXIWw1W8Kkvs7BIl9Ehd9OLt06uTNQS87d2UI6qmakGxQSEekjY6PezG40FiQ2csFOBZmK4iqB7auRYgAoJg0Dsakl5xaHDI_CVy3HO51wGdG9bfHy9pAeVfxys5UH6_QUYuQV9gHKGjQc8YGw05nJcMu6y_XoOcrcPAFwyx6tJr3jc-ii_ZyqrmNfiUGUg2KajMzbhKgRdGIjHeilhsO9sZKQlCGvPUjye1Il6fv_LXSfA");'></div>
+</div>
+<div class="overflow-visible w-[28px]">
+<div class="bg-center bg-no-repeat aspect-square bg-cover border-[#101623] bg-[#222f49] text-[#90a4cb] rounded-full flex items-center justify-center size-9 border-2" data-alt="User avatar 2 placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCXA3iiuW0QWkzMpFYBJJsowI50S7W9qkbxMoBMpuLd0Uj-d0T8wymXKJFMSnFcmMSLUl9gH9E2EmEq4Wvkez1WDxCVAmms_daml2QSkLCPTMf76lsUHCh-T8a2ftOVVK_NhQ1e6_uAftOAYhNlY_TEiCy_IkoUT_pcim-7kBrIJpunEVXkj5nmIJNRsbIQ5ZmrhVBvjFGsf3CeQADpiDPHiLZn2WkJqifRt6n1AV1LAJ1VVicbNKZiTXxibQmzEeMh62cwfszp3y4");'></div>
+</div>
+<div class="overflow-visible w-[28px]">
+<div class="bg-center bg-no-repeat aspect-square bg-cover border-[#101623] bg-[#222f49] text-[#90a4cb] rounded-full flex items-center justify-center size-9 border-2" data-alt="User avatar 3 placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDZRWkMpevsGR6WrXtT_k2zakbysteQcTguRgXRxLxLXWY422HoEasvPCZb_DmLgAhOaHi4j885KbmDGQW7Ki41H-G7tgOrPCfRlTKSyAlK1d50eG442DKc0ElVE5RAL-lkp6qDo1Y0TdDnB107U7bw0opx3ucyVMtUZx0yL6Lqo9JGrP7Q91F9JRECKRr8a6AlAU9rgDZk60eOzcTRPfpShgr1CTL1ij4CJo4p7mLAvFlA4p4AUylXHrjaPYmXSO5ZoiSvb1eKlk8");'></div>
+</div>
+<div class="overflow-visible w-[28px]">
+<div class="bg-center bg-no-repeat aspect-square bg-cover border-[#101623] bg-[#222f49] text-[#90a4cb] rounded-full flex items-center justify-center size-9 border-2" data-alt="User avatar 4 placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDOAipOL23I24M2f0BlQAanoxqi0b8QCTiM5MXx7jFbJolQ6GGn7R0OLjeaPVAeXD2-UV_9LguYHhCIHujoVzNp6qOd57-BMFWDPHfzH0af7LmJwGgqIiHVVJtUVeY16Ex9KAs0DrL3Yoyfe5wFbwvfmFAz5Sh0Nd7S_3hBBVSdM7r7fWJSCYBj0k21s3UXEBzEfEyKYPx8GkyJXXiYMrHPxUV7uN6XDvkZLqrDHgtdvwOJPAZjP_G-h6xJ4srPJDwNx5g8jAvVWUY");'></div>
+</div>
+<div class="overflow-visible w-[28px]">
+<div class="bg-center bg-no-repeat aspect-square bg-cover border-[#101623] bg-[#222f49] text-[#90a4cb] rounded-full flex items-center justify-center size-9 border-2" data-alt="User avatar 5 placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDLjA37iQ0SGPtj2xA_YXL0EKv9k1qnlCBRZxEMzf20ELyCEl0A12JWVeh2RGVTHB8kTPYsb_1ISa1pM5GuRaehOzbh56W-AQ1h1o2Z2LCP1YzDlPEcyesyOHMP5mh0w5ZOOrVen4x1AMqQ_91fB3DSa5Rt4STsezelGG0qAEhsl6_9TQawflDldeuqmJHc5nrRrbeqaM-i9dsQmqdhizkl9MwQylPuCKdM2D2o4j3vTFsez4DHutnIWwBU3RyVmcjTrdPsgSSPgno");'></div>
+</div>
+<div class="overflow-visible w-9">
+<div class="bg-center bg-no-repeat aspect-square bg-cover border-[#101623] bg-[#222f49] text-[#90a4cb] rounded-full flex items-center justify-center size-9 border-2" data-alt="User avatar 6 placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBz-aladsHLxJb5EKyFpJsusNDi6YhiOwsCBJaTlKoSlq6vtu1OHBlfoaN8cwA6Tna-eSMx7CuI8pucwryizgpptiAwtFwEkbXAKUkMIplWGT8OvvuabLP67yqLyx68guCm3g_3rXmTtJFgW4_wR7bmitXHmpSnZcRcg2vb0yQjrmeSh02PT9W0NknabmaIy8v44K2x4OwSFBhfEddvG63laGfy3lbxBr9dk4qyabUH-FHKre_fYQrTqUl6z67FXRGrLGmjoWJR684");'></div>
+</div>
+</div>
+</div>
+</div>
+</body></html>
